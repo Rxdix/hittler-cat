@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Gatos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .gallery {
+      text-align: center;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <img id="cat-image" src="gato1.jpg" alt="Gato que se parece a Hitler">
+    <br>
+    <button onclick="nextImage()">Siguiente Gato</button>
+  </div>
+
+  <script>
+    const images = [
+      'gato 1.jpg',
+      'gato 2.jpg',
+      'gato 3.jpg',
+];
+    let currentIndex = 0;
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length; // Esto hace que vuelva al inicio después de la última imagen
+      document.getElementById('cat-image').src = images[currentIndex];
+    }
+  </script>
+</body>
+</html>
